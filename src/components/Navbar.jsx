@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Grid from '@mui/material/Grid';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
+import Button from '@mui/material/Button';
 
 const Container = styled.div`
   width: 100%;
@@ -24,13 +25,17 @@ export default function Navbar() {
     <Container>
       <Grid container justifyContent="space-between" alignItems="center" height="100%">
         <Grid item>
-          <MenuIcon sx={{ color: '#231f20', fontSize: 40 }} />
+          <Button>
+            <MenuIcon sx={{ color: '#231f20', fontSize: 40 }} />
+          </Button>
         </Grid>
         <Grid item>
           <Title>MyndHealth</Title>
         </Grid>
         <Grid item>
-          <AccountCircleIcon sx={{ color: '#231f20', fontSize: 40 }} />
+          <Button>
+            <AccountCircleIcon sx={{ color: '#231f20', fontSize: 40 }} />
+          </Button>
         </Grid>
       </Grid>
     </Container>
