@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import styled from '@emotion/styled';
 import MenuItem from '@mui/material/MenuItem';
 import Checkbox from '@mui/material/Checkbox';
+import { Link } from 'react-router-dom';
 import FormField from '../components/FormField';
 
 const MTextField = styled(TextField)`
@@ -130,14 +131,6 @@ export default function RegisterUser() {
           fullWidth
         />
         <MTextField
-          name="preco"
-          type="text"
-          label="Faixa de preço"
-          placeholder="Digite sua faixa de preço por sessão"
-          required
-          fullWidth
-        />
-        <MTextField
           name="description"
           type="text"
           label="Apresentação"
@@ -147,13 +140,22 @@ export default function RegisterUser() {
           maxRows={4}
           fullWidth
         />
-        <Button
-          type="submit"
-          variant="contained"
-          fullWidth
-        >
-          Registrar como profissional
-        </Button>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+            >
+              Registrar como profissional
+            </Button>
+          </Grid>
+          <Grid item xs={4}>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <Button variant="contained" fullWidth>Voltar</Button>
+            </Link>
+          </Grid>
+        </Grid>
       </form>
     </FormField>
   );

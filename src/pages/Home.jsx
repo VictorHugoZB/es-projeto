@@ -26,12 +26,14 @@ export default function Home() {
       </p>
       <Grid container justifyContent="center">
         <Grid item>
-          <Button
-            sx={{ padding: '1rem', marginY: 2 }}
-            variant="contained"
-          >
-            Faça seu teste
-          </Button>
+          <Link to="/quiz" style={{ textDecoration: 'none' }}>
+            <Button
+              sx={{ padding: '1rem', marginY: 2 }}
+              variant="contained"
+            >
+              Faça seu teste
+            </Button>
+          </Link>
         </Grid>
       </Grid>
       <Grid container justifyContent="space-around" sx={{ marginTop: 10 }}>

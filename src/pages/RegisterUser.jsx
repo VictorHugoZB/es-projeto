@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import styled from '@emotion/styled';
+import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom';
 import FormField from '../components/FormField';
 
 const MTextField = styled(TextField)`
@@ -70,13 +72,22 @@ export default function RegisterUser() {
           required
           fullWidth
         />
-        <Button
-          type="submit"
-          variant="contained"
-          fullWidth
-        >
-          Criar Usuario
-        </Button>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+            >
+              Registrar Usuário
+            </Button>
+          </Grid>
+          <Grid item xs={4}>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <Button variant="contained" fullWidth>Voltar</Button>
+            </Link>
+          </Grid>
+        </Grid>
       </form>
     </FormField>
   );

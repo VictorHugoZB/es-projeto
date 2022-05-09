@@ -2,6 +2,9 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import FormField from '../components/FormField';
 
 const MTextField = styled(TextField)`
@@ -30,14 +33,26 @@ export default function Login() {
           required
           fullWidth
         />
-        <Button
-          type="submit"
-          variant="contained"
-          fullWidth
-        >
-          Entrar
-        </Button>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+            >
+              Registrar como profissional
+            </Button>
+          </Grid>
+          <Grid item xs={4}>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <Button variant="contained" fullWidth>Voltar</Button>
+            </Link>
+          </Grid>
+        </Grid>
       </form>
+      <Box sx={{ marginTop: 2 }}>
+        <Link to="/register-user">Não possui conta?</Link>
+      </Box>
     </FormField>
   );
 }
