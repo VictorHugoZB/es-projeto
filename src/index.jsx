@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import AuthProvider from './context/AuthContext';
+import AccountsProvider from './context/AccountsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <Routes>
-          <Route path="/*" element={<App />} />
-        </Routes>
+        <AccountsProvider>
+          <Routes>
+            <Route path="/*" element={<App />} />
+          </Routes>
+        </AccountsProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,

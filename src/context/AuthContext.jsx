@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 
 const AuthContext = React.createContext({});
 
@@ -8,15 +8,15 @@ export default function AuthProvider({ children }) {
   const [authUser, setAuthUser] = useState('');
   const [role, setRole] = useState('');
 
-  const values = {
+  const values = useMemo(() => ({
     authUser,
     role,
     setAuthUser,
     setRole,
-  };
+  }), [authUser, role]);
 
   return (
-    <AuthContext.Provider values={values}>
+    <AuthContext.Provider value={values}>
       { children }
     </AuthContext.Provider>
   );

@@ -1,36 +1,49 @@
-import React, { useState } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import styled from '@emotion/styled';
 import MenuItem from '@mui/material/MenuItem';
 import Checkbox from '@mui/material/Checkbox';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import FormField from '../components/FormField';
+import { useAccounts } from '../context/AccountsContext';
+import { useAuth } from '../context/AuthContext';
 
 const MTextField = styled(TextField)`
   margin: 0.5rem 0;
 `;
 
 export default function RegisterUser() {
-  const [senha, setSenha] = useState('');
-  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const { register, handleSubmit } = useForm();
+  const { setAuthUser, setRole } = useAuth();
+  const navigate = useNavigate();
+  const { accounts, setAccounts } = useAccounts();
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (senha !== confirmarSenha) {
-      alert('As senhas digitadas são diferentes.');
+  const onSubmit = (data) => {
+    if (data.senha !== data.confirmarSenha) {
+      alert('Senhas são diferentes');
       return;
     }
-    alert('Sua conta foi criada');
+
+    const specialists = [...accounts.specialists];
+    specialists.push({ ...data });
+    setAccounts({ ...accounts, specialists });
+    setAuthUser(data.nome);
+    setRole('specialist');
+    alert('Especialista registrado com sucesso');
+    navigate('/specialist-page');
   };
 
   return (
     <FormField title="Registrar profissional">
       <form
-        onSubmit={(e) => onSubmit(e)}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <MTextField
+          {...register('nome')}
           type="text"
           name="nome"
           placeholder="Digite seu nome"
@@ -39,6 +52,7 @@ export default function RegisterUser() {
           fullWidth
         />
         <MTextField
+          {...register('email')}
           type="email"
           name="email"
           placeholder="Digite seu e-mail"
@@ -47,6 +61,7 @@ export default function RegisterUser() {
           fullWidth
         />
         <MTextField
+          {...register('celular')}
           type="number"
           name="celular"
           placeholder="Digite seu celular"
@@ -55,8 +70,7 @@ export default function RegisterUser() {
           fullWidth
         />
         <MTextField
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          {...register('senha')}
           type="password"
           name="senha"
           placeholder="Digite sua senha"
@@ -65,8 +79,7 @@ export default function RegisterUser() {
           fullWidth
         />
         <MTextField
-          value={confirmarSenha}
-          onChange={(e) => setConfirmarSenha(e.target.value)}
+          {...register('confirmarSenha')}
           type="password"
           name="confirmarSenha"
           placeholder="Repita sua senha"
@@ -77,6 +90,7 @@ export default function RegisterUser() {
         <Grid container spacing={2}>
           <Grid item xs={8}>
             <MTextField
+              {...register('genero')}
               select
               label="Gênero"
               name="genero"
@@ -97,8 +111,9 @@ export default function RegisterUser() {
           </Grid>
           <Grid item xs={4}>
             <MTextField
+              {...register('dataNasci')}
               type="date"
-              name="dataNascimento"
+              name="dataNasci"
               label="Data de Nascimento"
               InputLabelProps={{ shrink: true }}
               required
@@ -109,6 +124,7 @@ export default function RegisterUser() {
         <Grid container spacing={2} alignItems="center" justifyContent="space-between">
           <Grid item xs={6}>
             <MTextField
+              {...register('localizacao')}
               name="localizacao"
               type="text"
               label="Localização"
@@ -123,6 +139,7 @@ export default function RegisterUser() {
           </Grid>
         </Grid>
         <MTextField
+          {...register('preco')}
           name="preco"
           type="text"
           label="Faixa de preço"
@@ -131,7 +148,8 @@ export default function RegisterUser() {
           fullWidth
         />
         <MTextField
-          name="description"
+          {...register('descricao')}
+          name="descricao"
           type="text"
           label="Apresentação"
           placeholder="Faça uma apresentação sua!"

@@ -1,34 +1,47 @@
-import React, { useState } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import styled from '@emotion/styled';
 import Grid from '@mui/material/Grid';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import FormField from '../components/FormField';
+import { useAccounts } from '../context/AccountsContext';
+import { useAuth } from '../context/AuthContext';
 
 const MTextField = styled(TextField)`
   margin: 0.5rem 0;
 `;
 
 export default function RegisterUser() {
-  const [senha, setSenha] = useState('');
-  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const { register, handleSubmit } = useForm();
+  const { setAuthUser, setRole } = useAuth();
+  const navigate = useNavigate();
+  const { accounts, setAccounts } = useAccounts();
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (senha !== confirmarSenha) {
-      alert('As senhas digitadas são diferentes.');
+  const onSubmit = (data) => {
+    if (data.senha !== data.confirmarSenha) {
+      alert('Senhas são diferentes');
       return;
     }
-    alert('Sua conta foi criada');
+
+    const users = [...accounts.users];
+    users.push({ ...data });
+    setAccounts({ ...accounts, users });
+    setAuthUser(data.nome);
+    setRole('user');
+    alert('Usuário registrado com sucesso');
+    navigate('/user-page');
   };
 
   return (
     <FormField title="Registrar usuário">
       <form
-        onSubmit={(e) => onSubmit(e)}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <MTextField
+          {...register('nome')}
           type="text"
           name="nome"
           placeholder="Digite seu nome"
@@ -37,6 +50,7 @@ export default function RegisterUser() {
           fullWidth
         />
         <MTextField
+          {...register('email')}
           type="email"
           name="email"
           placeholder="Digite seu e-mail"
@@ -45,6 +59,7 @@ export default function RegisterUser() {
           fullWidth
         />
         <MTextField
+          {...register('celular')}
           type="number"
           name="celular"
           placeholder="Digite seu celular"
@@ -53,8 +68,7 @@ export default function RegisterUser() {
           fullWidth
         />
         <MTextField
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
+          {...register('senha')}
           type="password"
           name="senha"
           placeholder="Digite sua senha"
@@ -63,8 +77,7 @@ export default function RegisterUser() {
           fullWidth
         />
         <MTextField
-          value={confirmarSenha}
-          onChange={(e) => setConfirmarSenha(e.target.value)}
+          {...register('confirmarSenha')}
           type="password"
           name="confirmarSenha"
           placeholder="Repita sua senha"
