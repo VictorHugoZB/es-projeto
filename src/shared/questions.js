@@ -1,43 +1,43 @@
 const questions = [
   {
     id: '1',
-    enunciado: 'enunciado da questão 1 skoasdjfiosh dfihsiudfhaisohsd faiuhsdaiuhfuidsa hfuhgfgfdhgrhfghdfgh',
+    enunciado: 'Diante de uma perda, tenho muito dificuldade em superá-la.',
   },
   {
     id: '2',
-    enunciado: 'enunciado da questão 2 skoasdj fiosh dfihsiudf haisohsdfa iuhsdaiuh fuidsahfuhgfgfdh grhfghdfgh',
+    enunciado: 'Não consigo ter controle diante de alguma destas substâncias ou situações: álcool, drogas, comida, compras, web/redes sociais, sexo...',
   },
   {
     id: '3',
-    enunciado: 'enunciado da questão 3 skoasd jfioshdfihsiudfhais ohsdfaiuhsda iuhfuidsa hfuhgfgfdhgr hfghdfgh',
+    enunciado: 'Penso, algumas vezes, que sou incapaz de ter e manter uma relação íntima com outra pessoa.',
   },
   {
     id: '4',
-    enunciado: 'enunciado da questão 4 skoasdjfiosh dfihsiudfhaisohsdf aiuhsdaiuhf uidsahfuhgfg fdhgrhfghdfgh',
+    enunciado: 'Nas ocasiões em que me deparo com uma questão muito difícil de resolver, penso que forças maléficas e sobrenaturais estão me atrapalhando.',
   },
   {
     id: '5',
-    enunciado: 'enunciado da questão 5 skoasdjf ioshdfih siudfhaisohsdfaiu hsdaiuhfuidsahfu hgfgfdhgrhfghdfgh',
+    enunciado: 'Cada vez que preciso tomar uma atitude importante, titubeio, vacilo, e muitas vezes, sinto-me paralisado, sem saber o que fazer.',
   },
   {
     id: '6',
-    enunciado: 'enunciado da questão 6 skoasdjf ioshdfihs iudfhaisohsdfa iuhsdaiuhfu idsahfuh gfgfdhgrhfghdfgh',
+    enunciado: 'Acontece de me sentir desequilibrado e perdido. E, pior que isso, sem ver um sentido real na vida.',
   },
   {
     id: '7',
-    enunciado: 'enunciado da questão 7 skoasd jfioshd fihsiudfhaisohsd faiuhsdaiuhfu idsahfuhgfgfd hgrhfghdfgh',
+    enunciado: 'Minha relação com familiares e amigos é tumultuada, pois vejo que a maioria das pessoas não me entende, e tampouco os compreendo.',
   },
   {
     id: '8',
-    enunciado: 'enunciado da questão 8 skoasdjfio shdfihsiud fhaisohs dfaiuhsdaiu hfuidsa hfuhgfgfdhgrh fghdfgh',
+    enunciado: 'Consigo ser eu mesmo na presença de outras pessoas.',
   },
   {
     id: '9',
-    enunciado: 'enunciado da questão 9 skoasd jfioshdfih siudfhaisohs dfaiuhsda iuhfuidsa hfuhgfg fdhgrh fghdfgh',
+    enunciado: 'Em muitos momentos, sinto-me ansioso, angustiado e perdido, sem que haja um motivo específico',
   },
   {
     id: '10',
-    enunciado: 'enunciado da questão 10 skoasdjfi oshdfih siudfhaisohsd faiuhsdaiu hfuidsahfu hgfgfdhgrhf ghdfgh',
+    enunciado: 'Busco, dentro de mim, respostas para minhas atitudes e sentimentos, principalmente quando são extremados e não os compreendo muito bem.',
   },
 ];
 
