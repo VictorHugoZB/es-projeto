@@ -99,8 +99,16 @@ export default function Navbar() {
         onClose={() => setUserOpen(false)}
       >
         <List>
-          <Item>Ver perfil</Item>
-          <Item>Sair</Item>
+          {role
+            ? (
+              <>
+                <Item>Ver perfil</Item>
+                <Item>Sair</Item>
+              </>
+            )
+            : (
+              <Item>Fazer Login</Item>
+            )}
         </List>
       </Drawer>
     </Container>
