@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+Para conseguir rodar este projeto, é necessário possuir o Node.Js instalado no computador, em seguida, abrir o terminal no diretório do projeto e rodar o comando "npm start", conforme explicação abaixo.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
