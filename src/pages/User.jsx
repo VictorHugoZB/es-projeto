@@ -66,6 +66,12 @@ export default function User() {
             {' '}
             {p.preco}
           </p>
+          <hr />
+          <p style={{ margin: '1rem auto' }}>
+            <b>Descrição:</b>
+            {' '}
+            {p.descricao}
+          </p>
         </CardPsicologo>
       ))}
     </Container>
